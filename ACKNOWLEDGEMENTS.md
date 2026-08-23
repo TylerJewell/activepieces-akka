@@ -49,7 +49,7 @@ monorepo. `gui/public/` is the original's assets, unchanged.
 **Configuration answers for the parts of the screen outside the slice**, in
 `activepieces-akka/src/main/resources/ap-shell/*.json`. Six files — flags, the platform, the
 project, the user list, one user, and the webhook piece's metadata — captured from a running
-activepieces and edited only to replace its generated identifiers with this port's. The interface
+activepieces with `curl` and edited only to replace its generated identifiers with this port's. The interface
 will not draw anything without them and none of it is behaviour this port rebuilt; the runs and
 the flow they ran are produced by the port's own engine, not captured.
 
