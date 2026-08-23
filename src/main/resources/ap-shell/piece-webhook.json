@@ -1,0 +1,241 @@
+{
+ "id": "xSAOrl2HF5rIG9P2rn0cE",
+ "displayName": "Webhook",
+ "logoUrl": "https://cdn.activepieces.com/pieces/new-core/webhooks.svg",
+ "actions": {
+  "return_response": {
+   "name": "return_response",
+   "displayName": "Return Response",
+   "description": "return a response",
+   "props": {
+    "responseType": {
+     "displayName": "Response Type",
+     "required": false,
+     "defaultValue": "json",
+     "options": {
+      "disabled": false,
+      "options": [
+       {
+        "label": "JSON",
+        "value": "json"
+       },
+       {
+        "label": "Raw",
+        "value": "raw"
+       },
+       {
+        "label": "Redirect",
+        "value": "redirect"
+       }
+      ]
+     },
+     "type": "STATIC_DROPDOWN"
+    },
+    "fields": {
+     "displayName": "Response",
+     "refreshers": [
+      "responseType"
+     ],
+     "required": true,
+     "type": "DYNAMIC"
+    },
+    "respond": {
+     "displayName": "Flow Execution",
+     "required": false,
+     "defaultValue": "stop",
+     "options": {
+      "disabled": false,
+      "options": [
+       {
+        "label": "Stop",
+        "value": "stop"
+       },
+       {
+        "label": "Respond and Continue",
+        "value": "respond"
+       }
+      ]
+     },
+     "type": "STATIC_DROPDOWN"
+    }
+   },
+   "requireAuth": true,
+   "errorHandlingOptions": {
+    "continueOnFailure": {
+     "defaultValue": false
+    },
+    "retryOnFailure": {
+     "defaultValue": false
+    }
+   },
+   "audience": "both",
+   "aiMetadata": {
+    "description": "Sends the HTTP response for a run started by the Catch Webhook trigger, with the body typed as JSON, Raw, or Redirect and Flow Execution choosing whether the run stops here or responds and continues; leave Flow Execution unset and no response is emitted. Prefer Respond and Wait for Next Webhook when the flow must answer then pause for a follow-up call, or the Forms piece Respond on UI action for form and chat triggers. Only synchronous (/sync) webhook calls receive it; not idempotent, since each call emits a response.",
+    "idempotent": false
+   },
+   "classification": "WRITE"
+  },
+  "return_response_and_wait_for_next_webhook": {
+   "name": "return_response_and_wait_for_next_webhook",
+   "displayName": "Respond and Wait for Next Webhook",
+   "description": "return a response and wait for the next webhook to resume the flow",
+   "props": {
+    "markdown": {
+     "displayName": "Markdown",
+     "required": false,
+     "description": "**Respond and Wait for Next Webhook**<br> \n            Check the response header (x-activepieces-resume-webhook-url) for the next webhook URL and call it to resume the flow. <br>\n            ",
+     "type": "MARKDOWN",
+     "variant": "INFO"
+    },
+    "responseType": {
+     "displayName": "Response Type",
+     "required": false,
+     "defaultValue": "json",
+     "options": {
+      "disabled": false,
+      "options": [
+       {
+        "label": "JSON",
+        "value": "json"
+       },
+       {
+        "label": "Raw",
+        "value": "raw"
+       },
+       {
+        "label": "Redirect",
+        "value": "redirect"
+       }
+      ]
+     },
+     "type": "STATIC_DROPDOWN"
+    },
+    "fields": {
+     "displayName": "Response",
+     "refreshers": [
+      "responseType"
+     ],
+     "required": true,
+     "type": "DYNAMIC"
+    }
+   },
+   "requireAuth": true,
+   "errorHandlingOptions": {
+    "continueOnFailure": {
+     "defaultValue": false
+    },
+    "retryOnFailure": {
+     "defaultValue": false
+    }
+   },
+   "audience": "both",
+   "aiMetadata": {
+    "description": "Replies to a webhook caller with a JSON, Raw, or Redirect body and attaches an x-activepieces-resume-webhook-url header holding a freshly minted callback URL, then suspends the run until that URL is called. Pick it for a multi-request handshake inside one flow; prefer plain Return Response when no follow-up call is needed, or Wait for Approval or the Delay piece when a human or a timer resumes the flow. Not idempotent: each execution creates a new waitpoint with a different resume URL and suspends the run again.",
+    "idempotent": false
+   },
+   "classification": "WRITE"
+  }
+ },
+ "triggers": {
+  "catch_webhook": {
+   "name": "catch_webhook",
+   "displayName": "Catch Webhook",
+   "description": "Receive incoming HTTP/webhooks using any HTTP method such as GET, POST, PUT, DELETE, etc.",
+   "requireAuth": true,
+   "props": {
+    "liveMarkdown": {
+     "displayName": "Markdown",
+     "required": false,
+     "description": "**Live URL:**\n```text\n{{webhookUrl}}\n```\ngenerate sample data & triggers published flow.\n\n",
+     "type": "MARKDOWN",
+     "variant": "BORDERLESS"
+    },
+    "syncMarkdown": {
+     "displayName": "Markdown",
+     "required": false,
+     "description": "**Synchronous Requests:**\n\nIf you expect a response from this webhook, add `/sync` to the end of the URL.\nIf it takes more than {{webhookTimeoutSeconds}} seconds, it will return a 408 Request Timeout response.\n\nTo return data, add an Webhook step to your flow with the Return Response action.\n",
+     "type": "MARKDOWN",
+     "variant": "INFO"
+    },
+    "testMarkdown": {
+     "displayName": "Markdown",
+     "required": false,
+     "description": "\n**Test URL:**\n\nif you want to generate sample data without triggering the flow, append `/test` to your webhook URL.\n\n",
+     "type": "MARKDOWN",
+     "variant": "INFO"
+    },
+    "authType": {
+     "displayName": "Authentication",
+     "required": true,
+     "defaultValue": "none",
+     "options": {
+      "disabled": false,
+      "options": [
+       {
+        "label": "None",
+        "value": "none"
+       },
+       {
+        "label": "Basic Auth",
+        "value": "basic"
+       },
+       {
+        "label": "Header Auth",
+        "value": "header"
+       },
+       {
+        "label": "HMAC Signature",
+        "value": "hmac"
+       }
+      ]
+     },
+     "type": "STATIC_DROPDOWN"
+    },
+    "authFields": {
+     "displayName": "Authentication Fields",
+     "required": false,
+     "refreshers": [
+      "authType"
+     ],
+     "type": "DYNAMIC"
+    }
+   },
+   "type": "WEBHOOK",
+   "handshakeConfiguration": {
+    "strategy": "NONE"
+   },
+   "renewConfiguration": {
+    "strategy": "NONE"
+   },
+   "sampleData": null,
+   "testStrategy": "SIMULATION",
+   "aiMetadata": {
+    "description": "Fires once for every request delivered to the unique webhook URL generated for this flow, under any HTTP method. Use it as the entry point for any system that can call a URL; Authentication must be set explicitly to None, Basic credentials, a shared header value, or an HMAC signature over the raw body, and requests that fail verification are silently dropped without starting a run. Appending /sync to the URL makes the caller wait for a Return Response action, while /test generates sample data without triggering the published flow."
+   },
+   "classification": "READ"
+  }
+ },
+ "categories": [
+  "CORE"
+ ],
+ "description": "Receive HTTP requests and trigger flows using unique URLs.",
+ "authors": [
+  "abuaboud",
+  "pfernandez98",
+  "kishanprmr",
+  "AbdulTheActivePiecer"
+ ],
+ "minimumSupportedRelease": "0.82.0",
+ "contextInfo": {
+  "version": "2"
+ },
+ "name": "@activepieces/piece-webhook",
+ "version": "0.1.41",
+ "directoryPath": "C:\\Users\\tyler\\specify\\activepieces\\packages\\pieces\\core\\webhook\\dist",
+ "projectUsage": 0,
+ "pieceType": "OFFICIAL",
+ "packageType": "REGISTRY",
+ "created": "2026-08-22T21:48:49.250Z",
+ "updated": "2026-08-22T21:48:49.250Z",
+ "projectId": null
+}

@@ -1,0 +1,7 @@
+target/
+node_modules/
+.idea/
+*.iml
+
+# Built from gui/ by `npx vite build`; see README.md. Generated, and 33 MB of it.
+src/main/resources/static-resources/

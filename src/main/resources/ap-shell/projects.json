@@ -1,0 +1,44 @@
+{
+ "data": [
+  {
+   "id": "port-project",
+   "created": "2026-08-22T21:39:16.024Z",
+   "updated": "2026-08-22T21:39:16.024Z",
+   "ownerId": "port-user",
+   "displayName": "dev's Project",
+   "platformId": "port-platform",
+   "maxConcurrentJobs": null,
+   "type": "PERSONAL",
+   "icon": {
+    "color": "DARK_GREEN"
+   },
+   "externalId": null,
+   "releasesEnabled": false,
+   "notifyFlowOwnerOnFailure": false,
+   "metadata": null,
+   "poolId": null,
+   "pieceSetId": null,
+   "workerGroupId": null,
+   "executionDataRetentionDays": null,
+   "plan": {
+    "id": "ax5uI4glXuHJgLYZTACzO",
+    "created": "2026-08-22T22:04:48.626Z",
+    "updated": "2026-08-22T22:04:48.626Z",
+    "projectId": "T72zKsCCIO4Xelv50DVF8",
+    "locked": false,
+    "name": "free",
+    "piecesFilterType": "NONE",
+    "pieces": [],
+    "activeFlowsLimit": null
+   },
+   "analytics": {
+    "totalUsers": 0,
+    "activeUsers": 0,
+    "totalFlows": 2,
+    "activeFlows": 2
+   }
+  }
+ ],
+ "next": null,
+ "previous": null
+}

@@ -1,0 +1,20 @@
+{
+ "data": [
+  {
+   "id": "port-user",
+   "email": "dev@ap.com",
+   "firstName": "Dev",
+   "status": "ACTIVE",
+   "externalId": null,
+   "platformId": "port-platform",
+   "platformRole": "ADMIN",
+   "lastName": "User",
+   "created": "2026-08-22T21:39:16.001Z",
+   "updated": "2026-08-22T21:39:16.010Z",
+   "lastActiveDate": null,
+   "imageUrl": null
+  }
+ ],
+ "next": null,
+ "previous": null
+}

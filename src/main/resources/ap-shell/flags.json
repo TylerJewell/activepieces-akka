@@ -1,0 +1,72 @@
+{
+ "USER_CREATED": true,
+ "ENVIRONMENT": "dev",
+ "FRONTEND_SENTRY_DSN": null,
+ "AGENTS_CONFIGURED": true,
+ "SHOW_ALERTS": false,
+ "SHOW_PROJECT_MEMBERS": false,
+ "SHOW_POWERED_BY_IN_FORM": true,
+ "PIECES_SYNC_MODE": "NONE",
+ "ENABLE_FLOW_ON_PUBLISH": true,
+ "EXECUTION_DATA_RETENTION_DAYS": 30,
+ "CLOUD_AUTH_ENABLED": true,
+ "EDITION": "ce",
+ "THIRD_PARTY_AUTH_PROVIDERS_TO_SHOW_MAP": {},
+ "THIRD_PARTY_AUTH_PROVIDER_REDIRECT_URL": "http://localhost:9065/redirect",
+ "EMAIL_AUTH_ENABLED": true,
+ "THEME": {
+  "websiteName": "Activepieces",
+  "colors": {
+   "avatar": "#515151",
+   "blue-link": "#1890ff",
+   "danger": "#f94949",
+   "primary": {
+    "default": "#6e41e2",
+    "dark": "#6738e1",
+    "light": "#eee8fc",
+    "medium": "#c6b4f4"
+   },
+   "warn": {
+    "default": "#f78a3b",
+    "light": "#fff6e4",
+    "dark": "#cc8805"
+   },
+   "success": {
+    "default": "#14ae5c",
+    "light": "#3cad71"
+   },
+   "selection": "#8964e7"
+  },
+  "logos": {
+   "fullLogoUrl": "https://cdn.activepieces.com/brand/full-logo.png",
+   "favIconUrl": "https://cdn.activepieces.com/brand/logo.svg",
+   "logoIconUrl": "https://cdn.activepieces.com/brand/logo.svg"
+  }
+ },
+ "SHOW_COMMUNITY": true,
+ "PRIVATE_PIECES_ENABLED": false,
+ "PRIVACY_POLICY_URL": "https://www.activepieces.com/privacy",
+ "TERMS_OF_SERVICE_URL": "https://www.activepieces.com/terms",
+ "TELEMETRY_ENABLED": false,
+ "AGENTS_ENABLED": false,
+ "TOOL_SEARCH_ENABLED": false,
+ "PUBLIC_URL": "http://localhost:9065/",
+ "FLOW_RUN_TIME_SECONDS": 600,
+ "TRIGGER_TIMEOUT_SECONDS": 60,
+ "FLOW_RUN_MEMORY_LIMIT_KB": 1048576,
+ "FLOW_RUN_LOG_SIZE_LIMIT_MB": 50,
+ "PAUSED_FLOW_TIMEOUT_DAYS": 30,
+ "WEBHOOK_TIMEOUT_SECONDS": 30,
+ "CURRENT_VERSION": "0.88.3",
+ "ALLOW_NPM_PACKAGES_IN_CODE_STEP": true,
+ "MAX_RECORDS_PER_TABLE": 10000,
+ "MAX_FIELDS_PER_TABLE": 100,
+ "MAX_FILE_SIZE_MB": 25,
+ "PROJECT_RATE_LIMITER_ENABLED": false,
+ "DEFAULT_CONCURRENT_JOBS_LIMIT": 5,
+ "SMTP_CONFIGURED": false,
+ "TURNSTILE_SITE_KEY": null,
+ "PGVECTOR_AVAILABLE": true,
+ "WEBHOOK_URL_PREFIX": "http://localhost:4200/api/v1/webhooks",
+ "SUPPORTED_APP_WEBHOOKS": []
+}

@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@activepieces/shared": ["vendor/core/shared/src/index.ts"],
+      "@activepieces/core-utils": ["vendor/core/utils/src/index.ts"],
+      "@activepieces/core-formula": ["vendor/core/formula/src/index.ts"],
+      "@activepieces/core-piece-types": ["vendor/core/piece-types/src/index.ts"],
+      "@activepieces/core-execution": ["vendor/core/execution/src/index.ts"],
+      "@activepieces/pieces-framework": ["vendor/pieces/framework/src/index.ts"],
+      "ee-embed-sdk": ["vendor/ee/embed-sdk/src/index.ts"]
+    }
+  },
+  "include": ["src", "vendor"]
+}
