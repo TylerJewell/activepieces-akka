@@ -25,11 +25,11 @@ The specifications the port was generated from are in
 
 📉 692 TypeScript lines → **809 Java lines**<br>
 📁 8 files → **18 files**<br>
-⚡ 456,575 → **9,296** nanoseconds to decide twenty-one branches of a router<br>
-⚡ 11,594,100 → **986,976** nanoseconds to run a two-hundred-item loop<br>
-⚡ 3,022,753 → **380,240** nanoseconds to run ten loops inside a loop<br>
-⚡ 2,559,794 → **186,217** nanoseconds to walk a fifty-step chain<br>
-🎯 29 answers compared → **29 the same**<br>
+⚡ 497,312 → **11,452** nanoseconds to decide twenty-one branches of a router<br>
+⚡ 14,477,650 → **1,019,769** nanoseconds to run a two-hundred-item loop<br>
+⚡ 2,691,954 → **391,500** nanoseconds to run ten loops inside a loop<br>
+⚡ 2,699,409 → **233,757** nanoseconds to walk a fifty-step chain<br>
+🎯 38 answers compared → **38 the same**<br>
 🧪 68 tests<br>
 🖼️ 2 screens compared against the original → **2 matching, 6 declared differences**
 
@@ -46,9 +46,9 @@ both readings.
 
 ## What it took to build
 
-⏱️ **5.5 hours** from the first command to the published repository, **4.4** of them active<br>
-💬 **1,157** exchanges with the model<br>
-✍️ **787,899** tokens written by the model, **323,625,986** counting everything sent and re-sent<br>
+⏱️ **5.8 hours** from the first command to the published repository, **4.7** of them active<br>
+💬 **1,220** exchanges with the model<br>
+✍️ **835,544** tokens written by the model, **367,524,223** counting everything sent and re-sent<br>
 🙋 **0** questions to a human<br>
 🧪 **68** tests
 
@@ -132,7 +132,8 @@ Restart Claude Code when it asks.
 > Clone https://github.com/TylerJewell/activepieces-akka into a new directory and open it.
 > Then run /akka:setup to install everything this project needs, build the browser interface
 > with `cd gui && npm install && npx vite build`, and run /akka:build to compile it, run the
-> tests, and start it locally.
+> tests, and start it locally. Then start a run with
+> `curl -X POST http://localhost:9065/api/v1/flow-runs/start`.
 
 **3. Open** http://localhost:9065.
 
@@ -167,8 +168,15 @@ mvn compile
 akka local run
 ```
 
-The service starts on **port 9065**. Open http://localhost:9065, press **Run**, and watch the
-steps arrive.
+The service starts on **port 9065**. Start a run and then watch it:
+
+```bash
+curl -X POST http://localhost:9065/api/v1/flow-runs/start
+```
+
+Open http://localhost:9065 and the run appears in the list; open it to watch the steps arrive.
+The run takes about twenty-eight seconds, because its last step fails and is retried three times
+with the waits the rules call for.
 
 ### Run the tests
 
